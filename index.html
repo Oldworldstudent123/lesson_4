@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1. Создайте массив из следующих значений
+        // '455'
+        // 87.15
+        // true
+        // undefined
+        // 7
+        // null
+        // 'false'
+        // []
+        // {}
+        // Выведите информацию о типе каждого элемента в консоли. 
+        // Если элемент это число, прибавте к нему 3
+        const someArray = ['455', 87.15, true, undefined, 7, null,'false', [], {}];
+        for (i = 0; i < someArray.length; i++) {
+            if (typeof someArray[i] === 'number') {
+                someArray[i] += 3;
+                console.log(someArray[i]); // вывод измененного типа number
+            }  
+            console.log(`${typeof someArray[i]}`);
+        }
+        
+
+        // 2. Напишите программу, которая спрашивает у пользователя целое число. 
+        // Создайте массив из случайных элементов, длинной в это число. 
+        // Случайные чила долны быть в диапазоне 0 до 10. Используйте методы Math.random() и Math.floor() для реализации. 
+        // Выведите содержимое массива консоль.
+        
+        const defArray = new Array(+prompt('write the length of Array'));
+        for (let i = 0; i < defArray.length; i++) {
+            defArray[i] = Math.floor(Math.random(i) * 10); 
+        }
+        
+        console.log(defArray);
+
+        // Скопируйте массив в новый массив. Каждый третий элемент нового массива умножте на 3.
+        // Выведите содержимое нового массива в консоли. Подсказака. ПОМНИТЕ ПРО ССЫЛКИ НА МАССИВ ПРИ
+        // КОПИРОВАНИИ;) Object.assign([], arr)
+
+        let copyArray = defArray.slice();
+        for (let i = 2; i < copyArray.length; i += 3) {
+            copyArray[i] *= 3;
+        }
+        console.log(copyArray);
+
+
+        // 3. Создайте объект student1 со свойствами firstName, lastName и mark;
+        // Скопируйте объект student1 в новый объект student2 с помощью spread оператора ( ... ) и измените значение mark;
+        // Скопируйте объект student1 в новый объект student3 с помощью Object.assign() и измените значение mark;
+        // Посчитайте среднюю оценку по группе (тоесть между 3я новыми объектами)
+        let Student1 = {
+            fistName:'Dima',
+            lastName:'Burukwa',
+            mark:'4',
+        }
+
+        let Student2 = {...Student1};
+        Student2.mark ='8';
+        console.log(Student2);
+
+        let Student3 = Object.assign({}, Student1);
+        Student3.mark = '2';
+        console.log(Student3);
+
+        let midResult = (+Student1.mark + +Student2.mark + +Student3.mark) / 3;
+        console.log(midResult);
+
+        // Просто получить значения свойства mark у каждого студента через точку или []
+        // Выведите полученные результаты в консоль.
+        console.log(Student1.mark, Student2.mark, Student3.mark);
+
+
+        // Отобразите все ключи и значения объекта student1 в виде:
+        // ключ - значение
+        // ключ - значение
+        // Используя цыкл
+        for (key in Student1) {
+            console.log(`${key} - ${Student1[key]}`);
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
